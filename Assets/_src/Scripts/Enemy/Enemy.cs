@@ -5,14 +5,23 @@ using UnityEngine;
 namespace PedroAurelio.MKS
 {
     [RequireComponent(typeof(Health))]
-    public class Enemy : MonoBehaviour
+    public abstract class Enemy : MonoBehaviour
     {
         [Header("Settings")]
         [SerializeField] private int collisionDamage;
 
+        protected MoveForward _Move;
+        protected Rotate _Rotate;
+
         private Health _health;
 
-        private void Awake() => _health = GetComponent<Health>();
+        private void Awake()
+        {
+            _health = GetComponent<Health>();
+
+            TryGetComponent<MoveForward>(out _Move);
+            TryGetComponent<Rotate>(out _Rotate);
+        }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
