@@ -26,8 +26,6 @@ namespace PedroAurelio.MKS
                 _rigidbody.angularVelocity = Mathf.MoveTowards(_rigidbody.angularVelocity, rotationSpeed * _rotationDirection, posAccel);
             else
                 _rigidbody.angularVelocity = Mathf.MoveTowards(_rigidbody.angularVelocity, 0f, negAccel);
-
-            Debug.Log(_rigidbody.angularVelocity);
         }
 
         public void SetRotationDirection(float direction) => _rotationDirection = direction;
