@@ -83,7 +83,7 @@ namespace PedroAurelio.MKS
                 {
                     ""name"": ""negative"",
                     ""id"": ""a828391e-85c2-4000-882a-60a08f2f87f7"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -94,7 +94,7 @@ namespace PedroAurelio.MKS
                 {
                     ""name"": ""positive"",
                     ""id"": ""e94cd7b1-f9b7-4bff-8a5d-340f0505c792"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
