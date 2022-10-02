@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 299156287}
   - component: {fileID: 299156286}
   - component: {fileID: 299156285}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 800885221}
   - component: {fileID: 800885220}
   - component: {fileID: 800885219}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 1518443551}
   - component: {fileID: 1518443550}
   - component: {fileID: 1518443549}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 1690972918}
   - component: {fileID: 1690972917}
   - component: {fileID: 1690972916}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 1706768501}
   - component: {fileID: 1706768500}
   - component: {fileID: 1706768504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,7 +909,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -940,7 +940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87372dd5567e63f4eb9d5937989b2308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 4
+  rotationSpeed: 60
+  posAccel: 2
+  negAccel: 2
 --- !u!114 &1706768503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +969,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

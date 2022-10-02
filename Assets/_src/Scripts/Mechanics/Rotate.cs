@@ -9,7 +9,9 @@ namespace PedroAurelio.MKS
     public class Rotate : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField, Range(0f, 30f)] private float rotationSpeed = 5f;
+        [SerializeField, Range(20f, 200f)] private float rotationSpeed = 60f;
+        [SerializeField, Range(0f, 10f)] private float posAccel = 4f;
+        [SerializeField, Range(0f, 10f)] private float negAccel = 2.5f;
 
         private float _rotationDirection;
 
@@ -20,8 +22,12 @@ namespace PedroAurelio.MKS
 
         private void AddTorque()
         {
-            var torque = _rotationDirection * rotationSpeed;
-            _rigidbody.AddTorque(torque);
+            if (_rotationDirection != 0f)
+                _rigidbody.angularVelocity = Mathf.MoveTowards(_rigidbody.angularVelocity, rotationSpeed * _rotationDirection, posAccel);
+            else
+                _rigidbody.angularVelocity = Mathf.MoveTowards(_rigidbody.angularVelocity, 0f, negAccel);
+
+            Debug.Log(_rigidbody.angularVelocity);
         }
 
         public void SetRotationDirection(float direction) => _rotationDirection = direction;
