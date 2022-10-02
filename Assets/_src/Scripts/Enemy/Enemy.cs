@@ -12,6 +12,7 @@ namespace PedroAurelio.MKS
 
         protected MoveForward _Move;
         protected Rotate _Rotate;
+        protected ShootBullets _Shoot;
 
         private Health _health;
 
@@ -21,6 +22,7 @@ namespace PedroAurelio.MKS
 
             TryGetComponent<MoveForward>(out _Move);
             TryGetComponent<Rotate>(out _Rotate);
+            _Shoot = GetComponentInChildren<ShootBullets>();
         }
 
         private void OnCollisionEnter2D(Collision2D other)

@@ -21,12 +21,12 @@ namespace PedroAurelio.MKS
 
             if (distanceToTarget > minimumDistance)
             {
-                Debug.Log($"Shoot = false");
+                _Shoot?.SetShootInput(false);
                 _Move.SetForwardInput(true);
             }
             else
             {
-                Debug.Log($"Shoot = true");
+                _Shoot?.SetShootInput(true);
                 _Move.SetForwardInput(false);
             }
 
