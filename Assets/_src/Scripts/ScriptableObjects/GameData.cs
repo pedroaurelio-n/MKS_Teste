@@ -25,7 +25,7 @@ namespace PedroAurelio.MKS
     public class GameData : ScriptableObject
     {
         public float SessionDuration { get; private set; }
-        public int EnemySpawnRate { get; private set; }
+        public int EnemySpawnTime { get; private set; }
         public int Highscore { get; private set; }
 
         public void SetSessionDuration(float duration)
@@ -33,9 +33,9 @@ namespace PedroAurelio.MKS
             SessionDuration = duration;
         }
 
-        public void SetEnemySpawnTime(int spawnRate)
+        public void SetEnemySpawnTime(int spawnTime)
         {
-            EnemySpawnRate = spawnRate;
+            EnemySpawnTime = spawnTime;
         }
 
         public void SetHighscore(int newScore)

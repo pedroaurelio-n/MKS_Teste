@@ -8,18 +8,17 @@ namespace PedroAurelio.MKS
     [RequireComponent(typeof(Rotate))]
     public class Shooter : Enemy
     {
-        [Header("Dependencies")]
-        [SerializeField] private Transform target;
-
-        [Header("Settings")]
-        [SerializeField, Range(0f, 1f)] private float rotationThreshold = 0.1f;
-        [SerializeField] private float minimumDistance;
+        [Header("Shooter Settings")]
+        [SerializeField] private float minDistanceToShoot;
 
         private void Update()
         {
-            var distanceToTarget = Vector2.Distance(target.position, transform.position);
+            if (_Target == null)
+                return;
 
-            if (distanceToTarget > minimumDistance)
+            var distanceToTarget = Vector2.Distance(_Target.position, transform.position);
+
+            if (distanceToTarget > minDistanceToShoot)
             {
                 _Shoot?.SetShootInput(false);
                 _Move.SetForwardInput(true);
@@ -30,19 +29,7 @@ namespace PedroAurelio.MKS
                 _Move.SetForwardInput(false);
             }
 
-            var directionToTarget = target.position - transform.position;
-            var dotProduct = Vector2.Dot(transform.up, directionToTarget.normalized);
-
-            if (Mathf.Abs(dotProduct) < rotationThreshold)
-            {
-                _Rotate.SetRotationDirection(0f);
-                return;
-            }
-
-            if (dotProduct >= 0f)
-                _Rotate.SetRotationDirection(1f);
-            else
-                _Rotate.SetRotationDirection(-1f);
+            RotateTowardsTarget();
         }
     }
 }
