@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PedroAurelio.SOEventSystem;
  
 namespace PedroAurelio.MKS
 {
@@ -8,6 +9,10 @@ namespace PedroAurelio.MKS
     {
         [Header("Settings")]
         [SerializeField] private int maxHealth;
+        [SerializeField] private int scoreOnDeath;
+
+        [Header("Events")]
+        [SerializeField] private IntEvent scoreEvent;
 
         private int _currentHealth;
 
@@ -24,6 +29,7 @@ namespace PedroAurelio.MKS
         public void Die()
         {
             _currentHealth = 0;
+            scoreEvent?.RaiseEvent(scoreOnDeath);
             gameObject.SetActive(false);
         }
     }
