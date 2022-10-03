@@ -8,8 +8,16 @@ namespace PedroAurelio.MKS
     [RequireComponent(typeof(Health))]
     public class Player : MonoBehaviour
     {
+        public static GameObject PlayerObject;
+
         public Health Health { get; private set; }
 
-        private void Awake() => Health = GetComponent<Health>();
+        private void Awake()
+        {
+            if (PlayerObject == null)
+                PlayerObject = gameObject;
+
+            Health = GetComponent<Health>();
+        }
     }
 }

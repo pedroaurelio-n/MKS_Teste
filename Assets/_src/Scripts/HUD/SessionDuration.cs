@@ -20,7 +20,7 @@ namespace PedroAurelio.MKS
             if (gameData.SessionDuration != default)
                 _currentSession = gameData.SessionDuration;
             else
-                _currentSession = 10f;
+                _currentSession = 60f;
         }
 
         private void Update()

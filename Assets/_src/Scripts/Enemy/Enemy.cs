@@ -7,8 +7,6 @@ namespace PedroAurelio.MKS
     [RequireComponent(typeof(Health))]
     public abstract class Enemy : MonoBehaviour
     {
-        [Header("Dependencies")]
-        [SerializeField] private Transform target;
         
         [Header("General Settings")]
         [SerializeField] private int collisionDamage;
@@ -24,13 +22,25 @@ namespace PedroAurelio.MKS
 
         private void Awake()
         {
-            _Target = target;
-
             _health = GetComponent<Health>();
 
             TryGetComponent<MoveForward>(out _Move);
             TryGetComponent<Rotate>(out _Rotate);
             _Shoot = GetComponentInChildren<ShootBullets>();
+        }
+
+        public void Initialize(Transform target, Vector3 position)
+        {
+            _Target = target;
+            transform.position = position;
+            SetInitialRotation();
+        }
+
+        private void SetInitialRotation()
+        {
+            var directionToPlayer = _Target.transform.position - transform.position;
+            var angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
 
         protected void RotateTowardsTarget()
