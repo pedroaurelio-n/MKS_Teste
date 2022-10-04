@@ -24,9 +24,9 @@ namespace PedroAurelio.MKS
     [CreateAssetMenu(fileName = "New Game Data", menuName = "Game Data")]
     public class GameData : ScriptableObject
     {
-        public float SessionDuration { get; private set; }
-        public int EnemySpawnTime { get; private set; }
-        public int Highscore { get; private set; }
+        [field: SerializeField] public float SessionDuration { get; private set; }
+        [field: SerializeField] public int EnemySpawnTime { get; private set; }
+        [field: SerializeField] public int Highscore { get; private set; }
 
         public void SetSessionDuration(float duration)
         {
