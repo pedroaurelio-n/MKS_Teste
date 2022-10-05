@@ -15,10 +15,7 @@ namespace PedroAurelio.MKS
 
         private void Awake()
         {
-            if (gameData.EnemySpawnTime != default)
-                _spawnTime = gameData.EnemySpawnTime;
-            else
-                _spawnTime = 3f;
+            _spawnTime = gameData.EnemySpawnTime;
             
             _waitForSpawnTime = new WaitForSeconds(_spawnTime);
 

@@ -20,11 +20,9 @@ namespace PedroAurelio.MKS
             scoreText.text = _currentScore.ToString("00");
         }
 
-        public void TryToSetHighscore()
+        public void SetDataScore()
         {
-            Debug.Log($"set highscore");
-            if (_currentScore > gameData.Highscore)
-                gameData.SetHighscore(_currentScore);
+            gameData.SetSessionScore(_currentScore);
         }
     }
 }

@@ -15,13 +15,7 @@ namespace PedroAurelio.MKS
         private float _currentSession;
         private bool _isSessionEnded;
 
-        private void Awake()
-        {
-            if (gameData.SessionDuration != default)
-                _currentSession = gameData.SessionDuration;
-            else
-                _currentSession = 60f;
-        }
+        private void Awake() => _currentSession = gameData.SessionDuration;
 
         private void Update()
         {
