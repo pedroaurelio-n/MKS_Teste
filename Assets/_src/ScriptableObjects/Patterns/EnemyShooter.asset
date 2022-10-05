@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b51247c624e04004eb447709642e4531, type: 3}
-  m_Name: Shooter
+  m_Name: EnemyShooter
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 4570163887139706066, guid: 1f4681609a33d1a43b3beaba81a229a5, type: 3}
   MaxAmmo: 0
@@ -23,5 +23,5 @@ MonoBehaviour:
   MissAngleOpening: 30
   NeedInput: 1
   IsAiming: 1
-  BulletSpeed: 5
-  FireRate: 3
+  BulletSpeed: 3.5
+  FireRate: 4.2

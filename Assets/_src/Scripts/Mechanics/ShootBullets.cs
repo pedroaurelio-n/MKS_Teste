@@ -12,9 +12,10 @@ namespace PedroAurelio.MKS
         [SerializeField] private ShootingPattern defaultPattern;
         [SerializeField] private Transform spawnPosition;
         [SerializeField] private Transform dynamic;
+        [SerializeField] private Animator shootAnimation;
 
         [Header("Settings")]
-        [SerializeField, Range(0f, 360f)]private float initialRotation;
+        [SerializeField, Range(0f, 360f)] private float initialRotation;
 
         private ShootingPattern _pattern;
         private int _ammoRemaining;
@@ -126,6 +127,9 @@ namespace PedroAurelio.MKS
                     bullet.Initialize(spawnPosition.position, direction + angleOffset, _pattern.BulletSpeed);
                 }
             }
+
+            if (shootAnimation != null)
+                shootAnimation.SetTrigger("Shoot");
 
             _fireTime = _pattern.FireRate;
 
