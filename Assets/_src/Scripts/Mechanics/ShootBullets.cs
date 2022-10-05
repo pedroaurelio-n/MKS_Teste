@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.InputSystem;
+using PedroAurelio.SOEventSystem;
  
 namespace PedroAurelio.MKS
 {
     public class ShootBullets : MonoBehaviour
     {
         [Header("Dependencies")]
-        // [SerializeField] private IntEvent ammoEvent;
+        [SerializeField] private IntEvent ammoEvent;
         [SerializeField] private ShootingPattern defaultPattern;
         [SerializeField] private Transform spawnPosition;
         [SerializeField] private Transform dynamic;
@@ -54,7 +55,7 @@ namespace PedroAurelio.MKS
             }
 
 
-            // ammoEvent?.RaiseEvent(_ammoRemaining);
+            ammoEvent?.RaiseEvent(_ammoRemaining);
 
             if (!_pattern.IsAiming)
                 _rotation.z = initialRotation;
@@ -132,7 +133,7 @@ namespace PedroAurelio.MKS
             {
                 _ammoRemaining--;
 
-                // ammoEvent?.RaiseEvent(_ammoRemaining);
+                ammoEvent?.RaiseEvent(_ammoRemaining);
 
                 if (_ammoRemaining == 0)
                     ChangePattern(defaultPattern);

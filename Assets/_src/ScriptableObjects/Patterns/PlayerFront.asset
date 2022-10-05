@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b51247c624e04004eb447709642e4531, type: 3}
-  m_Name: Player
+  m_Name: PlayerFront
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 4570163887139706066, guid: a4906033a2d63d54298bfdde8f511a7d, type: 3}
   MaxAmmo: 0

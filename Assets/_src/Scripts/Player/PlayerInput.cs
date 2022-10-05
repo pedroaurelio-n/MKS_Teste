@@ -4,13 +4,14 @@ using UnityEngine;
  
 namespace PedroAurelio.MKS
 {
+    [RequireComponent(typeof(PlayerWeaponHandler))]
     [RequireComponent(typeof(MoveForward))]
     [RequireComponent(typeof(Rotate))]
     public class PlayerInput : MonoBehaviour
     {
+        private PlayerWeaponHandler _weapon;
         private MoveForward _move;
         private Rotate _rotate;
-        private ShootBullets _shoot;
 
         private PlayerControls _controls;
 
@@ -18,7 +19,7 @@ namespace PedroAurelio.MKS
         {
             _move = GetComponent<MoveForward>();
             _rotate = GetComponent<Rotate>();
-            _shoot = GetComponentInChildren<ShootBullets>();
+            _weapon = GetComponent<PlayerWeaponHandler>();
         }
 
         private void OnEnable()
@@ -33,8 +34,11 @@ namespace PedroAurelio.MKS
                 _controls.Gameplay.Rotate.performed += _rotate.SetRotationDirection;
                 _controls.Gameplay.Rotate.canceled += _rotate.SetRotationDirection;
 
-                _controls.Gameplay.Shoot.performed += _shoot.SetShootInput;
-                _controls.Gameplay.Shoot.canceled += _shoot.SetShootInput;
+                _controls.Gameplay.ShootFront.performed += _weapon.FireFrontShot;
+                _controls.Gameplay.ShootFront.canceled += _weapon.FireFrontShot;
+
+                _controls.Gameplay.ShootSide.performed += _weapon.FireSideShot;
+                _controls.Gameplay.ShootSide.canceled += _weapon.FireSideShot;
 
                 _controls.Enable();
             }
@@ -48,8 +52,11 @@ namespace PedroAurelio.MKS
             _controls.Gameplay.Rotate.performed -= _rotate.SetRotationDirection;
             _controls.Gameplay.Rotate.canceled -= _rotate.SetRotationDirection;
 
-            _controls.Gameplay.Shoot.performed -= _shoot.SetShootInput;
-            _controls.Gameplay.Shoot.canceled -= _shoot.SetShootInput;
+            _controls.Gameplay.ShootFront.performed -= _weapon.FireFrontShot;
+            _controls.Gameplay.ShootFront.canceled -= _weapon.FireFrontShot;
+
+            _controls.Gameplay.ShootSide.performed -= _weapon.FireSideShot;
+            _controls.Gameplay.ShootSide.canceled -= _weapon.FireSideShot;
 
             _controls.Disable();
         }

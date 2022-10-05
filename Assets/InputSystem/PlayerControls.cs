@@ -48,9 +48,18 @@ namespace PedroAurelio.MKS
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""ShootFront"",
                     ""type"": ""Button"",
                     ""id"": ""23ffc6b2-0556-40d3-b34c-91a325f80645"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShootSide"",
+                    ""type"": ""Button"",
+                    ""id"": ""e63a438e-d233-41dc-a5f4-a4a68713c21f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -109,7 +118,18 @@ namespace PedroAurelio.MKS
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootFront"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc325e58-dd13-45a9-97e3-69495fce81d4"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootSide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -122,7 +142,8 @@ namespace PedroAurelio.MKS
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
             m_Gameplay_Forward = m_Gameplay.FindAction("Forward", throwIfNotFound: true);
             m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
-            m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
+            m_Gameplay_ShootFront = m_Gameplay.FindAction("ShootFront", throwIfNotFound: true);
+            m_Gameplay_ShootSide = m_Gameplay.FindAction("ShootSide", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -184,14 +205,16 @@ namespace PedroAurelio.MKS
         private IGameplayActions m_GameplayActionsCallbackInterface;
         private readonly InputAction m_Gameplay_Forward;
         private readonly InputAction m_Gameplay_Rotate;
-        private readonly InputAction m_Gameplay_Shoot;
+        private readonly InputAction m_Gameplay_ShootFront;
+        private readonly InputAction m_Gameplay_ShootSide;
         public struct GameplayActions
         {
             private @PlayerControls m_Wrapper;
             public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Forward => m_Wrapper.m_Gameplay_Forward;
             public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
-            public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
+            public InputAction @ShootFront => m_Wrapper.m_Gameplay_ShootFront;
+            public InputAction @ShootSide => m_Wrapper.m_Gameplay_ShootSide;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -207,9 +230,12 @@ namespace PedroAurelio.MKS
                     @Rotate.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
                     @Rotate.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
                     @Rotate.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                    @Shoot.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
-                    @Shoot.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
-                    @Shoot.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
+                    @ShootFront.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootFront;
+                    @ShootFront.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootFront;
+                    @ShootFront.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootFront;
+                    @ShootSide.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootSide;
+                    @ShootSide.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootSide;
+                    @ShootSide.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootSide;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -220,9 +246,12 @@ namespace PedroAurelio.MKS
                     @Rotate.started += instance.OnRotate;
                     @Rotate.performed += instance.OnRotate;
                     @Rotate.canceled += instance.OnRotate;
-                    @Shoot.started += instance.OnShoot;
-                    @Shoot.performed += instance.OnShoot;
-                    @Shoot.canceled += instance.OnShoot;
+                    @ShootFront.started += instance.OnShootFront;
+                    @ShootFront.performed += instance.OnShootFront;
+                    @ShootFront.canceled += instance.OnShootFront;
+                    @ShootSide.started += instance.OnShootSide;
+                    @ShootSide.performed += instance.OnShootSide;
+                    @ShootSide.canceled += instance.OnShootSide;
                 }
             }
         }
@@ -231,7 +260,8 @@ namespace PedroAurelio.MKS
         {
             void OnForward(InputAction.CallbackContext context);
             void OnRotate(InputAction.CallbackContext context);
-            void OnShoot(InputAction.CallbackContext context);
+            void OnShootFront(InputAction.CallbackContext context);
+            void OnShootSide(InputAction.CallbackContext context);
         }
     }
 }
