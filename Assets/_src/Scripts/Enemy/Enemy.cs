@@ -1,16 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using PedroAurelio.SOEventSystem;
  
 namespace PedroAurelio.MKS
 {
     [RequireComponent(typeof(Health))]
-    public abstract class Enemy : MonoBehaviour
+    public abstract class Enemy : MonoBehaviour, IDestroyable
     {
         
         [Header("General Settings")]
         [SerializeField] private int collisionDamage;
         [SerializeField, Range(0f, 1f)] private float rotationThreshold = 0.1f;
+        [SerializeField] private int scoreOnDeath;
+
+        [Header("Events")]
+        [SerializeField] private IntEvent scoreEvent;
 
         protected Transform _Target;
 
@@ -70,6 +73,12 @@ namespace PedroAurelio.MKS
                 player.Health.ModifyHealth(-collisionDamage);
                 _health.ModifyHealth(-int.MaxValue);
             }
+        }
+
+        public void Destroy()
+        {
+            scoreEvent?.RaiseEvent(scoreOnDeath);
+            gameObject.SetActive(false);
         }
     }
 }

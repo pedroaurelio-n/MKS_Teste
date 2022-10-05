@@ -215,9 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb7b131d6987f94abc314f46fcac3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   collisionDamage: 1
   rotationThreshold: 0.02
+  scoreOnDeath: 1
+  scoreEvent: {fileID: 11400000, guid: 5908a901cdc3d634b96ff6a4c3aa1129, type: 2}
   minDistanceToShoot: 7
 --- !u!114 &8742336267984833385
 MonoBehaviour:
@@ -234,8 +235,6 @@ MonoBehaviour:
   healthValuePrefab: {fileID: 3250891125114225195, guid: 7c3b672244c01ea4c950736a1f8d27c5, type: 3}
   valueOffset: {x: 0, y: 0.5}
   maxHealth: 3
-  scoreOnDeath: 1
-  scoreEvent: {fileID: 11400000, guid: 5908a901cdc3d634b96ff6a4c3aa1129, type: 2}
 --- !u!114 &8742336267984833381
 MonoBehaviour:
   m_ObjectHideFlags: 0

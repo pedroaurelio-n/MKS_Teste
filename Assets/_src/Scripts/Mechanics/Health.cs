@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PedroAurelio.SOEventSystem;
  
 namespace PedroAurelio.MKS
 {
@@ -16,21 +15,24 @@ namespace PedroAurelio.MKS
 
         [Header("Settings")]
         [SerializeField] private int maxHealth;
-        [SerializeField] private int scoreOnDeath;
 
-        [Header("Events")]
-        [SerializeField] private IntEvent scoreEvent;
-
+        private IDestroyable _destroyable;
         private HealthValue _healthValue;
         private int _currentHealth;
 
-        private void Awake() => _currentHealth = maxHealth;
+        private void Awake()
+        {
+            _currentHealth = maxHealth;
+
+            if (!TryGetComponent<IDestroyable>(out _destroyable))
+                Debug.LogWarning($"Object needs to have a IDestroyable component to use Health.");
+        }
 
         private void Start()
         {
             if (healthValuePrefab != null)
             {
-                _healthValue = Instantiate(healthValuePrefab);
+                _healthValue = Instantiate(healthValuePrefab, transform.position, Quaternion.identity);
                 _healthValue.Initialize(transform, valueOffset);
 
                 _healthValue.UpdateHealth(_currentHealth, maxHealth);
@@ -50,9 +52,8 @@ namespace PedroAurelio.MKS
         public void Die()
         {
             _currentHealth = 0;
-            scoreEvent?.RaiseEvent(scoreOnDeath);
             _healthValue.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            _destroyable.Destroy();
         }
     }
 }
