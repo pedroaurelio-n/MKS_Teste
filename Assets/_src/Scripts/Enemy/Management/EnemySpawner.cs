@@ -31,7 +31,7 @@ namespace PedroAurelio.MKS
                 var randomEnemy = enemyPrefabList[Random.Range(0, enemyPrefabList.Count)];
                 var enemy = Instantiate(randomEnemy, transform);
 
-                var player = Player.PlayerObject;
+                var player = LevelDependencies.Player;
                 var randomSpawn = spawnPositions[Random.Range(0, spawnPositions.Count)];
                 enemy.Initialize(player.transform, randomSpawn.position);
             }

@@ -6,9 +6,6 @@ namespace PedroAurelio.MKS
 {
     public class Health : MonoBehaviour
     {
-        public int MaxHealth { get => maxHealth; }
-        public int CurrentHealth { get => _currentHealth; }
-
         [Header("HUD Indicator")]
         [SerializeField] private HealthValue healthValuePrefab;
         [SerializeField] private Vector2 valueOffset;
@@ -18,10 +15,14 @@ namespace PedroAurelio.MKS
 
         private IDestroyable _destroyable;
         private HealthValue _healthValue;
+        private ChangeShipSprite _shipSprite;
+
         private int _currentHealth;
 
         private void Awake()
         {
+            _shipSprite = GetComponentInChildren<ChangeShipSprite>();
+
             _currentHealth = maxHealth;
 
             if (!TryGetComponent<IDestroyable>(out _destroyable))
@@ -37,6 +38,8 @@ namespace PedroAurelio.MKS
 
                 _healthValue.UpdateHealth(_currentHealth, maxHealth);
             }
+
+            _shipSprite.UpdateShipSprite(_currentHealth, maxHealth);
         }
 
         public void ModifyHealth(int value)
@@ -44,6 +47,7 @@ namespace PedroAurelio.MKS
             _currentHealth += value;
 
             _healthValue.UpdateHealth(_currentHealth, maxHealth);
+            _shipSprite.UpdateShipSprite(_currentHealth, maxHealth);
 
             if (_currentHealth <= 0f)
                 Die();

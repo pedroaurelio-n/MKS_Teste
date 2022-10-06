@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8993c7a24364c42b53c85b686ddad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoEvent: {fileID: 0}
   defaultPattern: {fileID: 11400000, guid: af7a1942e67e83f4f8ea28d1f8dc6fd3, type: 2}
   spawnPosition: {fileID: 980765982}
   dynamic: {fileID: 0}
+  shootAnimation: {fileID: 0}
   initialRotation: 0
 --- !u!1 &980765981
 GameObject:
@@ -90,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8742336267409456698}
   - component: {fileID: 8742336267409456699}
+  - component: {fileID: 36592984090188554}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -164,6 +167,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &36592984090188554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742336267409456701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5548cc77465ace49a1165f8556a282c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullSprite: {fileID: 1531153383, guid: d8c1a403c53de1b439c504394647f4ff, type: 3}
+  brokenSprite: {fileID: -1289677983, guid: d8c1a403c53de1b439c504394647f4ff, type: 3}
+  destroyedSprite: {fileID: 1910710977, guid: d8c1a403c53de1b439c504394647f4ff, type: 3}
 --- !u!1 &8742336267984833386
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +236,7 @@ MonoBehaviour:
   collisionDamage: 1
   rotationThreshold: 0.02
   scoreOnDeath: 1
+  deathAnimation: {fileID: 7409036495619833490, guid: f18dc6e4087ae4e4887cf631374e1e82, type: 3}
   scoreEvent: {fileID: 11400000, guid: 5908a901cdc3d634b96ff6a4c3aa1129, type: 2}
   minDistanceToShoot: 7
 --- !u!114 &8742336267984833385

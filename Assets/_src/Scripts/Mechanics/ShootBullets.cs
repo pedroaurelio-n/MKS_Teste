@@ -32,6 +32,9 @@ namespace PedroAurelio.MKS
 
             if (spawnPosition == null)
                 spawnPosition = transform;
+
+            if (dynamic == null)
+                dynamic = LevelDependencies.Dynamic;
         }
 
         private void Start()

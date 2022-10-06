@@ -9,24 +9,20 @@ namespace PedroAurelio.MKS
     [RequireComponent(typeof(Health))]
     public class Player : MonoBehaviour, IDestroyable
     {
-        public static GameObject PlayerObject;
-
         public Health Health { get; private set; }
+
+        [Header("Dependencies")]
+        [SerializeField] private GameObject deathAnimation;
 
         [Header("Events")]
         [SerializeField] private GameEvent endEvent;
 
-        private void Awake()
-        {
-            if (PlayerObject == null)
-                PlayerObject = gameObject;
-
-            Health = GetComponent<Health>();
-        }
+        private void Awake() => Health = GetComponent<Health>();
 
         public void Destroy()
         {
             endEvent?.RaiseEvent();
+            var death = Instantiate(deathAnimation, transform.position, Quaternion.identity, LevelDependencies.Dynamic);
             gameObject.SetActive(false);
         }
     }

@@ -11,6 +11,7 @@ namespace PedroAurelio.MKS
         [SerializeField] private int collisionDamage;
         [SerializeField, Range(0f, 1f)] private float rotationThreshold = 0.1f;
         [SerializeField] private int scoreOnDeath;
+        [SerializeField] private GameObject deathAnimation;
 
         [Header("Events")]
         [SerializeField] private IntEvent scoreEvent;
@@ -78,6 +79,7 @@ namespace PedroAurelio.MKS
         public void Destroy()
         {
             scoreEvent?.RaiseEvent(scoreOnDeath);
+            var death = Instantiate(deathAnimation, transform.position, Quaternion.identity, LevelDependencies.Dynamic);
             gameObject.SetActive(false);
         }
     }
