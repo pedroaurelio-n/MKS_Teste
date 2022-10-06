@@ -1,4 +1,4 @@
-# Teste prático - 0xGameStudio
+# Teste prático - MKS Sistemas
 
 Para o teste, é necessário criar um mini jogo no estilo *top-down shooter* onde o jogador controla um navio e deve enfrentar navios inimigos. O jogador pode rotacionar o navio, mover-se para frente e atirar projéteis por 2 meios diferentes (tiro frontal e tiro lateral).
 
@@ -22,7 +22,7 @@ Para o teste, é necessário criar um mini jogo no estilo *top-down shooter* ond
 
 ### Requisitos necessários
 
-- Disponíveis em [link](MKS - Unity Developer Test.pdf)
+- Disponíveis [neste PDF](https://github.com/pedroaurelio-n/MKS_Teste/blob/7e02c001dbee224bda698825ab869714511b35ed/MKS%20-%20Unity%20Developer%20Test.pdf)
 
 
 
