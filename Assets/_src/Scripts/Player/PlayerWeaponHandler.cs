@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +6,7 @@ namespace PedroAurelio.MKS
 {
     public class PlayerWeaponHandler : MonoBehaviour
     {
+        [Header("Dependencies")]
         [SerializeField] private ShootBullets frontShot;
         [SerializeField] private List<ShootBullets> sideShots;
 

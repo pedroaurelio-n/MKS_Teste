@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
  
@@ -7,6 +5,7 @@ namespace PedroAurelio.SOEventSystem
 {
     public class UnityEventListener : BaseEventListener
     {
+        [Header("Event Settings")]
         [SerializeField] private UnityEvent response;
 
         protected override void InvokeEvent()

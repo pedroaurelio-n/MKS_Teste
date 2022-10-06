@@ -6,7 +6,10 @@ namespace PedroAurelio.MKS
 {
     public class EnemySpawner : MonoBehaviour
     {
+        [Header("Game Data")]
         [SerializeField] private GameData gameData;
+        
+        [Header("Dependencies")]
         [SerializeField] private List<Enemy> enemyPrefabList;
         [SerializeField] private List<Transform> spawnPositions;
 

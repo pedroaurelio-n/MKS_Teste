@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
  
 namespace PedroAurelio.SOEventSystem
 {
     public class IntUnityEventListener : BaseEventListener
     {
+        [Header("IntEvent Settings")]
         [SerializeField] private IntUnityEvent response;
 
         public void OnEventRaised(int value)

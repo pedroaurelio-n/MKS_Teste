@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using PedroAurelio.SOEventSystem;
@@ -8,8 +6,13 @@ namespace PedroAurelio.MKS
 {
     public class SessionDuration : MonoBehaviour
     {
+        [Header("Game Data")]
         [SerializeField] private GameData gameData;
+
+        [Header("Events")]
         [SerializeField] private GameEvent endSession;
+
+        [Header("Dependencies")]
         [SerializeField] private TextMeshProUGUI durationText;
 
         private float _currentSession;

@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
  
 namespace PedroAurelio.MKS
 {
     public class ChangeShipSprite : MonoBehaviour
     {
+        [Header("Settings")]
         [SerializeField] private Sprite fullSprite;
         [SerializeField] private Sprite brokenSprite;
         [SerializeField] private Sprite destroyedSprite;

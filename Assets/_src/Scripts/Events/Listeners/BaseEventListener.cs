@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
  
 namespace PedroAurelio.SOEventSystem
 {
     public abstract class BaseEventListener : MonoBehaviour
     {
+        [Header("Base Settings")]
         [SerializeField] private GameEvent gameEvent;
         [SerializeField] protected float delay;
         [SerializeField] protected bool isOneShot;
@@ -36,14 +35,8 @@ namespace PedroAurelio.SOEventSystem
                 _WasRaised = true;
         }
 
-        private void OnEnable()
-        {
-            gameEvent.RegisterListener(this);
-        }
+        private void OnEnable() => gameEvent.RegisterListener(this);
 
-        private void OnDisable()
-        {
-            gameEvent.UnregisterListener(this);
-        }
+        private void OnDisable() => gameEvent.UnregisterListener(this);
     }
 }

@@ -7,8 +7,10 @@ namespace PedroAurelio.MKS
 {
     public class ShootBullets : MonoBehaviour
     {
-        [Header("Dependencies")]
+        [Header("Events")]
         [SerializeField] private IntEvent ammoEvent;
+
+        [Header("Dependencies")]
         [SerializeField] private ShootingPattern defaultPattern;
         [SerializeField] private Transform spawnPosition;
         [SerializeField] private Transform dynamic;
@@ -155,10 +157,7 @@ namespace PedroAurelio.MKS
                 _rotation.z += _pattern.SpinRate;
         }
 
-        public void ChangePattern(ShootingPattern newPattern)
-        {
-            InitializePattern(newPattern);
-        }
+        public void ChangePattern(ShootingPattern newPattern) => InitializePattern(newPattern);
 
         public void SetShootInput(bool value) => _shootInput = value;
         public void SetShootInput(InputAction.CallbackContext ctx)

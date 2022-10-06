@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
  
 namespace PedroAurelio.MKS
@@ -8,14 +6,8 @@ namespace PedroAurelio.MKS
     [RequireComponent(typeof(Rotate))]
     public class Chaser : Enemy
     {
-        private void Start()
-        {
-            _Move.SetForwardInput(true);
-        }
+        private void Start() => _Move.SetForwardInput(true);
 
-        private void Update()
-        {
-            RotateTowardsTarget();
-        }
+        private void Update() => RotateTowardsTarget();
     }
 }

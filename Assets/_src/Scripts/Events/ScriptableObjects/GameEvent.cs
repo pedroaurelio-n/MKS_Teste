@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
  
@@ -12,9 +11,7 @@ namespace PedroAurelio.SOEventSystem
         public void RaiseEvent()
         {
             for (int i = listeners.Count - 1; i >= 0; i--)
-            {
                 listeners[i].OnEventRaised();
-            }
         }
 
         public void RegisterListener(BaseEventListener listener)

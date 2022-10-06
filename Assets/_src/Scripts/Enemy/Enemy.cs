@@ -6,12 +6,13 @@ namespace PedroAurelio.MKS
     [RequireComponent(typeof(Health))]
     public abstract class Enemy : MonoBehaviour, IDestroyable
     {
+        [Header("Dependencies")]
+        [SerializeField] private GameObject deathAnimation;
         
         [Header("General Settings")]
         [SerializeField] private int collisionDamage;
         [SerializeField, Range(0f, 1f)] private float rotationThreshold = 0.1f;
         [SerializeField] private int scoreOnDeath;
-        [SerializeField] private GameObject deathAnimation;
 
         [Header("Events")]
         [SerializeField] private IntEvent scoreEvent;

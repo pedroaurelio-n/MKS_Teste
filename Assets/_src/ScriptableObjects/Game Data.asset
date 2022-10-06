@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb92ceeccb5534244a4847b092ab952e, type: 3}
   m_Name: Game Data
   m_EditorClassIdentifier: 
-  <SessionDuration>k__BackingField: 60
+  <SessionDuration>k__BackingField: 120
   <EnemySpawnTime>k__BackingField: 4
   <SessionScore>k__BackingField: 0
-  <Highscore>k__BackingField: 4
+  <Highscore>k__BackingField: 0

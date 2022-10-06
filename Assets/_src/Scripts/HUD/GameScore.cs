@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
  
@@ -7,7 +5,10 @@ namespace PedroAurelio.MKS
 {
     public class GameScore : MonoBehaviour
     {
+        [Header("Game Data")]
         [SerializeField] private GameData gameData;
+
+        [Header("Dependencies")]
         [SerializeField] private TextMeshProUGUI scoreText;
 
         private int _currentScore;
@@ -20,9 +21,6 @@ namespace PedroAurelio.MKS
             scoreText.text = _currentScore.ToString("00");
         }
 
-        public void SetDataScore()
-        {
-            gameData.SetSessionScore(_currentScore);
-        }
+        public void SetDataScore() => gameData.SetSessionScore(_currentScore);
     }
 }

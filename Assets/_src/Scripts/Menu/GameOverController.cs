@@ -24,10 +24,7 @@ namespace PedroAurelio.MKS
             highscoreText.text = gameData.Highscore.ToString("00");
         }
 
-        public void LoadScene(string sceneName)
-        {
-            SceneManager.LoadScene(sceneName);
-        }
+        public void LoadScene(string sceneName) => SceneManager.LoadScene(sceneName);
 
         private IEnumerator StopTime()
         {
@@ -35,9 +32,6 @@ namespace PedroAurelio.MKS
             Time.timeScale = 0f;
         }
 
-        private void OnDisable()
-        {
-            Time.timeScale = 1f;
-        }
+        private void OnDisable() => Time.timeScale = 1f;
     }
 }
