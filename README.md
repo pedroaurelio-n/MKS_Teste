@@ -30,4 +30,4 @@ Para o teste, é necessário criar um mini jogo no estilo *top-down shooter* ond
 
 ### Resultado Final
 
-![Gameplay]()
+![Gameplay](https://media.giphy.com/media/IzFzsmpgvbiJPY3htf/giphy.gif)
