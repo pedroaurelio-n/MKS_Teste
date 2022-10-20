@@ -20,14 +20,6 @@ Para o teste, é necessário criar um mini jogo no estilo *top-down shooter* ond
 
 
 
-### Requisitos necessários
-
-- Disponíveis [neste PDF](https://github.com/pedroaurelio-n/MKS_Teste/blob/7e02c001dbee224bda698825ab869714511b35ed/MKS%20-%20Unity%20Developer%20Test.pdf)
-
-
-
-
-
 ### Resultado Final
 
 ![Gameplay](https://media.giphy.com/media/IzFzsmpgvbiJPY3htf/giphy.gif)
